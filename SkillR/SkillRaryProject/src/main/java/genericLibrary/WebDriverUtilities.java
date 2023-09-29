@@ -87,7 +87,7 @@ public class WebDriverUtilities {
 	public void scrollbar(WebDriver driver, WebElement element)
 	{
 		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("window.scrollIntoview();", element);
+		js.executeScript("a[0].window.scrollIntoview();", element);
 	}
 	
 	//11. Explicit Wait
