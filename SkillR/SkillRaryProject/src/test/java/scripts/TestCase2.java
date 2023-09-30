@@ -1,5 +1,6 @@
 package scripts;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.testng.annotations.Test;
 
@@ -20,12 +21,16 @@ public class TestCase2 extends BaseClass{
 		SkillraryDemoLoginPage sd=new SkillraryDemoLoginPage(driver);
 		utilities.dropdowns(sd.getSelectCategoryDD(), pdata.getPropertyData("coursedd"));
 		TestingPage tp=new TestingPage(driver);
-//		utilities.scrollbar(driver, tp.getFacebookLink());
-		Point cordinates = tp.getFacebookLink().getLocation();
-		int X=cordinates.getX();
-		int Y=cordinates.getY();
 		
-		utilities.scrollBar(driver, X, Y);
+		JavascriptExecutor js=(JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true)", tp.getFacebookLink());
+		
+		//utilities.scrollbar(driver, tp.getFacebookLink());
+//		Point cordinates = tp.getFacebookLink().getLocation();
+//		int X=cordinates.getX();
+//		int Y=cordinates.getY();
+//		
+//		utilities.scrollBar(driver, X, Y);
 		tp.facebookWebElement();
 	}
 
